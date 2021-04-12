@@ -43,7 +43,7 @@ router.post('/register', async (req, res) => {
   })
   
   // respond with success message
-  return res.status(201).json(newUser)
+  return res.status(201).json({})
 
 })
 
@@ -82,8 +82,13 @@ router.post('/login', async (req, res) => {
   // store user in session
   req.session.user = user;
 
+
   // respond with user info
-  res.json(user)
+  res.json({
+    id: user.id,
+    username: user.username,
+    updatedAt: user.updatedAt
+  })
   
 })
 
